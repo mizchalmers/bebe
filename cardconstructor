@@ -1,0 +1,26 @@
+// Card Constructor
+function Card(suit, number){
+    var privateSuit = suit;
+    var privateNumber = number;
+    this.getSuit = function(){
+        return privateSuit;
+    };
+    this.getNumber = function(){
+        return privateNumber;
+    };
+    this.getValue = function(){
+        if (privateNumber === 1){
+            return 11;
+        } else if (privateNumber >= 11){
+            return 10;
+        } else {
+            return privateNumber;
+        };
+    }
+};
+var deal = function(){
+    var suit = Math.floor(Math.random()*4+1);
+    var number = Math.floor(Math.random()*13+1);
+    return new Card(suit, number);
+}
+var card = deal();
